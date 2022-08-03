@@ -12,8 +12,8 @@
       Exchange rates
     </nav>
     <main class="flex flex-col items-center justify-center">
-      <div class="container">
-        <div class="place-content-center initial-input">
+      <div class="flex-col container w-60">
+        <div class="place-content-center">
           <label for="currency" class="block text-sm font-medium text-gray-700"
             >Currency</label
           >
@@ -33,9 +33,9 @@
             <div class="absolute inset-y-0 right-0 flex items-center">
               <label for="currency" class="sr-only">Currency</label>
               <select
-                id="base-currency"
-                name="base-currency"
-                class="base-currency-selector focus:ring-indigo-500 focus:border-indigo-500 h-full py-0 pl-2 pr-7 border-transparent bg-transparent text-gray-500 sm:text-sm rounded-md"
+                id="currency"
+                name="currency"
+                class="focus:ring-indigo-500 focus:border-indigo-500 h-full py-0 pl-2 pr-7 border-transparent bg-transparent text-gray-500 sm:text-sm rounded-md"
               >
                 <option>USD</option>
                 <option>CAD</option>
@@ -44,16 +44,16 @@
             </div>
           </div>
         </div>
-        <div>
+        <div class="icon-container">
           <span
-            class="iconify hover:invert"
+            class="iconify hover:invert m-auto"
             data-icon="arcticons:priceconverter"
             data-width="50"
             data-height="50"
           ></span>
         </div>
 
-        <div class="place-content-center">
+        <div class="justify-self-center">
           <div class="mt-1 relative rounded-md shadow-sm">
             <div
               class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"
@@ -62,17 +62,17 @@
             </div>
             <input
               type="number"
-              name="result"
-              id="conversion-result"
+              name="price"
+              id="price"
               class="focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-7 pr-12 sm:text-sm border-gray-300 rounded-md"
               placeholder="0.00"
             />
             <div class="absolute inset-y-0 right-0 flex items-center">
               <label for="currency" class="sr-only">Currency</label>
               <select
-                id="final-currency"
-                name="final-currency"
-                class="final-currency-selector focus:ring-indigo-500 focus:border-indigo-500 h-full py-0 pl-2 pr-7 border-transparent bg-transparent text-gray-500 sm:text-sm rounded-md"
+                id="currency"
+                name="currency"
+                class="focus:ring-indigo-500 focus:border-indigo-500 h-full py-0 pl-2 pr-7 border-transparent bg-transparent text-gray-500 sm:text-sm rounded-md"
               >
                 <option>EUR</option>
                 <option>CAD</option>
