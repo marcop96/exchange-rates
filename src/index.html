@@ -13,11 +13,15 @@
     </nav>
     <main class="flex flex-col items-center justify-center">
       <div class="flex-col container w-60">
-        <div class="place-content-center">
-          <label for="currency" class="block text-sm font-medium text-gray-700"
-            >Currency</label
+        <div class="base-currency-container place-content-center">
+          <label
+            for="base-currency"
+            class="block text-sm font-medium text-gray-700"
+            >Base currency</label
           >
-          <div class="mt-1 relative rounded-md shadow-sm">
+          <div
+            class="base-currency-input-container mt-1 relative rounded-md shadow-sm"
+          >
             <div
               class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"
             >
@@ -26,15 +30,16 @@
             <input
               type="number"
               name="price"
-              id="price"
-              class="focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-7 pr-12 sm:text-sm border-gray-300 rounded-md"
+              id="base-currency-input"
+              class="base-currency-input focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-7 pr-12 sm:text-sm border-gray-300 rounded-md"
               placeholder="0.00"
             />
-            <div class="absolute inset-y-0 right-0 flex items-center">
-              <label for="currency" class="sr-only">Currency</label>
+            <div
+              class="base-currency-container absolute inset-y-0 right-0 flex items-center"
+            >
               <select
-                id="currency"
-                name="currency"
+                id="base-currency-selector"
+                name="base-currency"
                 class="focus:ring-indigo-500 focus:border-indigo-500 h-full py-0 pl-2 pr-7 border-transparent bg-transparent text-gray-500 sm:text-sm rounded-md"
               >
                 <option>USD</option>
