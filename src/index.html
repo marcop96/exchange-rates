@@ -1,94 +1,75 @@
 <!DOCTYPE html>
-<html>
+<html class="h-screen">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
-
+    <link rel="stylesheet" type="text/css" media="screen" href="input.css" />
     <link href="/dist/output.css" rel="stylesheet" />
   </head>
-  <body class="bg-slate-200">
-    <nav id="navbar" class="bg-slate-600 text-center text-white text-lg">
-      Exchange rates
-    </nav>
-    <main class="flex flex-col items-center justify-center">
-      <div class="flex-col container w-60">
-        <div class="base-currency-container place-content-center">
-          <label
-            for="base-currency"
-            class="block text-sm font-medium text-gray-700"
-            >Base currency</label
-          >
-          <div
-            class="base-currency-input-container mt-1 relative rounded-md shadow-sm"
-          >
-            <div
-              class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"
-            >
-              <span class="text-gray-500 sm:text-sm"> $ </span>
-            </div>
-            <input
-              type="number"
-              name="price"
-              id="base-currency-input"
-              class="base-currency-input focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-7 pr-12 sm:text-sm border-gray-300 rounded-md"
-              placeholder="0.00"
-            />
-            <div
-              class="base-currency-container absolute inset-y-0 right-0 flex items-center"
-            >
-              <select
-                id="base-currency-selector"
-                name="base-currency"
-                class="focus:ring-indigo-500 focus:border-indigo-500 h-full py-0 pl-2 pr-7 border-transparent bg-transparent text-gray-500 sm:text-sm rounded-md"
-              >
-                <option>USD</option>
-                <option>CAD</option>
-                <option>EUR</option>
-              </select>
-            </div>
-          </div>
-        </div>
-        <div class="icon-container">
-          <span
-            class="iconify hover:invert m-auto"
-            data-icon="arcticons:priceconverter"
-            data-width="50"
-            data-height="50"
-          ></span>
-        </div>
-
-        <div
-          class="final-currency-container mt-1 relative rounded-md shadow-sm justify-self-center"
+  <body class="h-full">
+    <nav id="navbar" class="text-center text-white text-lg">Exchange rates</nav>
+    <main class="flex flex-row items-center justify-center h-auto">
+      <div class="amount-container">
+        <label for="amount" class="block text-sm font-medium text-gray-700"
+          >Amount</label
         >
-          <div
-            class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"
-          >
-            <span class="text-gray-500 sm:text-sm"> $ </span>
-          </div>
-          <input
-            type="number"
-            name="price"
-            id="price"
-            class="focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-7 pr-12 sm:text-sm border-gray-300 rounded-md"
-            placeholder="0.01"
-          />
-          <div
-            class="final-currency-container absolute inset-y-0 right-0 flex items-center"
-          >
-            <label for="final-currency" class="sr-only">Currency</label>
-            <select
-              id="final-currency-selector"
-              name="final-currency"
-              class="final-currency focus:ring-indigo-500 focus:border-indigo-500 h-full py-0 pl-2 pr-7 border-transparent bg-transparent text-gray-500 sm:text-sm rounded-md"
-            >
-              <option>EUR</option>
-              <option>CAD</option>
-              <option>USD</option>
-            </select>
-          </div>
-        </div>
+        <input
+          type="text"
+          name="price"
+          id="price"
+          class="focus:ring-indigo-500 focus:border-indigo-500 pl-2 block w-full sm:text-sm border-gray-300 rounded-md"
+          placeholder="0.00"
+        />
+      </div>
+      <div id="initial-currency-container ">
+        <label
+          for="initial-currency"
+          class="block text-sm font-medium text-gray-700"
+          >From</label
+        >
+        <select
+          id="countries"
+          class="focus:ring-indigo-500 focus:border-indigo-500 block sm:text-sm border-gray-300 rounded-md mx-1"
+        >
+          <option selected>Choose a currency</option>
+          <option value="US">United States</option>
+          <option value="CA">Canada</option>
+          <option value="FR">France</option>
+          <option value="DE">Germany</option>
+        </select>
+      </div>
+
+      <div id="final-currency-container">
+        <label
+          for="final-currency"
+          class="block text-sm font-medium text-gray-700"
+          >To</label
+        >
+        <select
+          id="countries"
+          class="focus:ring-indigo-500 focus:border-indigo-500 block sm:text-sm border-gray-300 rounded-md mx-1"
+        >
+          <option selected>Choose a currency</option>
+          <option value="US">United States</option>
+          <option value="CA">Canada</option>
+          <option value="FR">France</option>
+          <option value="DE">Germany</option>
+        </select>
       </div>
     </main>
+    <div class="result-container flex-row h-auto justify-self-center items-center mx-[715px]">
+      <div class="button-container flex justify-center">
+      <button class=" convert-button btn btn-outline my-4 self-center">Convert</button>
+    </div>
+    <div class=" result-text-container alert alert-error shadow-lg">
+      <div>
+                <span class="result-text">Error! Task failed successfully.</span>
+      </div>
+    </div>
+    </div>
+
+
+    </div>
   </body>
 </html>

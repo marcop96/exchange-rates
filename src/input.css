@@ -3,7 +3,11 @@
 @tailwind utilities;
 
 nav {
-  background-color: #01172f;
+  background-color: #b6465f;
+}
+
+body {
+  background-color: #ebd4cb;
 }
 
 @layer utilities {
