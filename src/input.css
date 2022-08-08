@@ -2,14 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-nav {
-  background-color: #b6465f;
-}
-
-body {
-  background-color: #ebd4cb;
-}
-
 @layer utilities {
   input[type="number"]::-webkit-inner-spin-button,
   input[type="number"]::-webkit-outer-spin-button {
