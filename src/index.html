@@ -16,8 +16,8 @@
         >
         <input
           type="text"
-          name="price"
-          id="price"
+          name="amount"
+          id="amount-input"
           class="focus:ring-indigo-500 focus:border-indigo-500 pl-2 block w-full sm:text-sm border-gray-300 rounded-md"
           placeholder="0.00"
         />
@@ -29,7 +29,7 @@
           >From</label
         >
         <select
-          id="countries"
+          id="initial-currency-selector"
           class="focus:ring-indigo-500 focus:border-indigo-500 block sm:text-sm border-gray-300 rounded-md mx-1"
         >
           <option selected>Choose a currency</option>
@@ -47,7 +47,7 @@
           >To</label
         >
         <select
-          id="countries"
+          id="final-currency-selector"
           class="focus:ring-indigo-500 focus:border-indigo-500 block sm:text-sm border-gray-300 rounded-md mx-1"
         >
           <option selected>Choose a currency</option>
@@ -58,18 +58,17 @@
         </select>
       </div>
     </main>
-    <div class="result-container flex flex-col  h-auto justify-center">
-      <div class="button-container flex justify-center">
-      <button class=" convert-button btn  my-4 self-center bg-navcol hover:bg-othercol">Convert</button>
+    <div class="button-container flex justify-center">
+      <button id="convert-button" class=" convert-button btn  my-4 self-center bg-navcol hover:bg-othercol">Convert</button>
     </div>
-    <div class=" result-text-container flex alert alert-error shadow-lg w-fit self-center bg-othercol ">
+    <div class="result-container flex flex-col  h-auto justify-center">
+    <div class=" result-text-container flex flex-col h-auto justify-center alert alert-error shadow-lg w-fit self-center bg-othercol ">
       <div>
                 <span class="result-text">adspdlaspdlsa</span>
       </div>
     </div>
     </div>
-
-
     </div>
+    <script type="text/javascript" src="app.js"></script>
   </body>
 </html>
