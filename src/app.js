@@ -15,18 +15,18 @@ let conversion = "";
 //     (data) =>
 //       ($resultText.textContent = `${$amountInput.value} Eur are ${data.conversion_rate} GBP`)
 //   );
-// // };
+// };
 
 //($resultText.textContent = `${$amountInput.value} Eur are ${data.conversion_rate} GBP`)
 $convertButton.onclick = function () {
   fetch(
-    "https://v6.exchangerate-api.com/v6/517e16350fa29778db9d180f/pair/EUR/GBP"
+    "https://v6.exchangerate-api.com/v6/517e16350fa29778db9d180f/pair/USD/ARS"
   )
     .then((response) => response.json())
     .then(
       (data) =>
-        ($resultText.textContent = `${$amountInput.value} Eur are ${
-          data.conversion_rate * $amountInput.value
-        } GBP`)
+        ($resultText.textContent = `${$amountInput.value} ${
+          data.base_code
+        } are ${data.conversion_rate * $amountInput.value} ${data.target_code}`)
     );
 };
