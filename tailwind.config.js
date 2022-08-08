@@ -6,6 +6,7 @@ module.exports = {
     colors: {
       navcol: "#b6465f",
       pinky: "#ebd4cb",
+      othercol: "#DA9F93",
     },
   },
   plugins: [require("daisyui")],
