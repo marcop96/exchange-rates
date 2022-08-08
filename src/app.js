@@ -6,13 +6,27 @@ const $resultText = document.querySelector(".result-text");
 let conversion = "";
 // fetch https://v6.exchangerate-api.com/v6/YOUR-API-KEY/latest/USD
 
-$convertButton.addEventListener('click')function () {
+// $convertButton.onlick = function () {
+// fetch(
+//   "https://v6.exchangerate-api.com/v6/517e16350fa29778db9d180f/pair/EUR/GBP"
+// )
+//   .then((response) => response.json())
+//   .then(
+//     (data) =>
+//       ($resultText.textContent = `${$amountInput.value} Eur are ${data.conversion_rate} GBP`)
+//   );
+// // };
+
+//($resultText.textContent = `${$amountInput.value} Eur are ${data.conversion_rate} GBP`)
+$convertButton.onclick = function () {
   fetch(
     "https://v6.exchangerate-api.com/v6/517e16350fa29778db9d180f/pair/EUR/GBP"
   )
     .then((response) => response.json())
     .then(
       (data) =>
-        ($resultText.textContent = `${$amountInput} Eur are ${data.conversion_rate} GBP`)
+        ($resultText.textContent = `${$amountInput.value} Eur are ${
+          data.conversion_rate * $amountInput.value
+        } GBP`)
     );
-});
+};
