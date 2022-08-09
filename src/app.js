@@ -18,7 +18,7 @@ $convertButton.onclick = function () {
 setTimeout(addOptions, 500);
 
 function addOptions() {
-  totalCurrencies.forEach(function (e, index) {
+  totalCurrencies.forEach(function (e) {
     let newOption = document.createElement("option");
 
     newOption.textContent = e;
