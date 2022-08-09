@@ -20,7 +20,7 @@ setTimeout(addOptions, 500);
 function addOptions() {
   totalCurrencies.forEach(function (e, index) {
     let newOption = document.createElement("option");
-    console.log(e);
+
     newOption.textContent = e;
     newOption.value = e;
     $initialSelector.appendChild(newOption);
