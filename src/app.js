@@ -6,16 +6,27 @@ const $resultText = document.querySelector(".result-text");
 let baseCurrency = "";
 let conversionRate;
 let targetCurrency = "";
-let totalCurrencies = [];
+let totalCurrencies;
 
-fetch("https://v6.exchangerate-api.com/v6/517e16350fa29778db9d180f/latest/USD")
-  .then((response) => response.json())
-  .then((data) => totalCurrencies.push(Object.keys(data.conversion_rates)));
-
+getCurrencies();
 $convertButton.onclick = function () {
   getData();
+
   showConversion();
 };
+
+setTimeout(addOptions, 500);
+
+function addOptions() {
+  totalCurrencies.forEach(function (e, index) {
+    let newOption = document.createElement("option");
+    console.log(e);
+    newOption.textContent = e;
+    newOption.value = e;
+    $initialSelector.appendChild(newOption);
+    $finalSelector.appendChild(newOption.cloneNode(true));
+  });
+}
 
 function getData() {
   fetch(
@@ -33,4 +44,12 @@ function showConversion() {
   $resultText.textContent = `${$amountInput.value} ${baseCurrency} are ${
     conversionRate * $amountInput.value
   } ${targetCurrency}`;
+}
+
+function getCurrencies() {
+  fetch(
+    "https://v6.exchangerate-api.com/v6/517e16350fa29778db9d180f/latest/USD"
+  )
+    .then((response) => response.json())
+    .then((data) => (totalCurrencies = Object.keys(data.conversion_rates)));
 }
