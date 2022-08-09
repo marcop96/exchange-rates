@@ -6,10 +6,11 @@ const $resultText = document.querySelector(".result-text");
 let baseCurrency = "";
 let conversionRate;
 let targetCurrency = "";
+let totalCurrencies = [];
 
 fetch("https://v6.exchangerate-api.com/v6/517e16350fa29778db9d180f/latest/USD")
   .then((response) => response.json())
-  .then((data) => console.log(data.conversion_rates));
+  .then((data) => totalCurrencies.push(Object.keys(data.conversion_rates)));
 
 $convertButton.onclick = function () {
   getData();
@@ -22,9 +23,6 @@ function getData() {
   )
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
-      baseCurrency = data.base_code;
-      console.log(baseCurrency);
       baseCurrency = data.base_code;
       targetCurrency = data.target_code;
       conversionRate = data.conversion_rate;
