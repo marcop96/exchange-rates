@@ -9,9 +9,15 @@ let targetCurrency = "";
 let totalCurrencies;
 let initialValue;
 let finalValue;
+let URL1 = "https://v6.exchangerate-api.com/v6/517e16350fa29778db9d180f/pair/";
+
 getCurrencies();
 
 //select.options[select.selectedIndex].value; gets select values
+//href gets full link
+function getURL() {
+  return (URL1 = `https://v6.exchangerate-api.com/v6/517e16350fa29778db9d180f/pair/${initialValue}/${finalValue}`);
+}
 
 function getSelectValues() {
   initialValue = $initialSelector.options[$initialSelector.selectedIndex].value;
@@ -19,8 +25,9 @@ function getSelectValues() {
 }
 
 $convertButton.onclick = function () {
-  getData();
   getSelectValues();
+  getURL();
+  getData();
   showConversion();
 };
 
@@ -38,9 +45,7 @@ function addOptions() {
 }
 
 function getData() {
-  fetch(
-    "https://v6.exchangerate-api.com/v6/517e16350fa29778db9d180f/pair/USD/ARS"
-  )
+  fetch(URL1)
     .then((response) => response.json())
     .then((data) => {
       baseCurrency = data.base_code;
