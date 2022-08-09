@@ -7,11 +7,20 @@ let baseCurrency = "";
 let conversionRate;
 let targetCurrency = "";
 let totalCurrencies;
-
+let initialValue;
+let finalValue;
 getCurrencies();
+
+//select.options[select.selectedIndex].value; gets select values
+
+function getSelectValues() {
+  initialValue = $initialSelector.options[$initialSelector.selectedIndex].value;
+  finalValue = $finalSelector.options[$finalSelector.selectedIndex].value;
+}
+
 $convertButton.onclick = function () {
   getData();
-
+  getSelectValues();
   showConversion();
 };
 
