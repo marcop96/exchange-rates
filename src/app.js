@@ -12,13 +12,15 @@ let finalValue;
 let URL1 = "https://v6.exchangerate-api.com/v6/517e16350fa29778db9d180f/pair/";
 
 getCurrencies();
-//?tofix: FIRST API CALL DOES NOTHING
-//?
+
 //select.options[select.selectedIndex].value; gets select values
-//href gets full link
 
 $convertButton.onclick = function () {
+  validateAmount($amountInput.value);
   getSelectValues();
+  validateInitialSelect(initialValue);
+  validateFinalSelect(finalValue);
+
   getURL();
   getData();
   showConversion();

@@ -40,3 +40,25 @@ function getSelectValues() {
   initialValue = $initialSelector.options[$initialSelector.selectedIndex].value;
   finalValue = $finalSelector.options[$finalSelector.selectedIndex].value;
 }
+
+function validateAmount(amount) {
+  if (amount.length === 0) {
+    console.log("field must contain at least one number");
+    return "field must contain at least one number";
+  }
+  // if ("d+(.d+)?(?=$| )".test(amount)) {
+  //   console.log("only numbers");
+  // }
+}
+
+function validateInitialSelect(select) {
+  if (select == "Choose a currency") {
+    console.log("please select a currency");
+    $initialSelector.classList.add("outline-red-500");
+  }
+}
+function validateFinalSelect(select) {
+  if (select == "Choose a currency") {
+    $finalSelector.classList.add("outline-red-500");
+  }
+}
