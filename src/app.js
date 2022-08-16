@@ -15,11 +15,8 @@ let URL1 = "https://v6.exchangerate-api.com/v6/517e16350fa29778db9d180f/pair/";
 
 getCurrencies();
 
-//select.options[select.selectedIndex].value; gets select values
-
 $convertButton.onclick = function () {
   getAmount();
-  // validateAmount(amount);
   getSelectValues();
   validateInitialSelect(initialValue);
   validateFinalSelect(finalValue);
@@ -38,7 +35,7 @@ $convertButton.onclick = function () {
   $resultContainer.classList.remove("hidden");
 };
 
-setTimeout(addOptions, 500);
+// setTimeout(addOptions, 500);
 function getData() {
   fetch(URL1)
     .then((response) => response.json())
@@ -52,18 +49,13 @@ function getData() {
     });
 }
 
-// function showConversion() {
-//   $resultText.textContent = `${amount} ${baseCurrency} are ${
-//     conversionRate * amount
-//   } ${targetCurrency}`;
-// }
-
 function getCurrencies() {
   fetch(
     "https://v6.exchangerate-api.com/v6/517e16350fa29778db9d180f/latest/USD"
   )
     .then((response) => response.json())
-    .then((data) => (totalCurrencies = Object.keys(data.conversion_rates)));
+    .then((data) => (totalCurrencies = Object.keys(data.conversion_rates)))
+    .then((OnfullFilled) => addOptions(totalCurrencies));
 }
 function addOptions() {
   totalCurrencies.forEach(function (e) {
