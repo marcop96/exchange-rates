@@ -10,6 +10,7 @@ let targetCurrency = "";
 let totalCurrencies;
 let initialValue;
 let finalValue;
+let amount;
 let URL1 = "https://v6.exchangerate-api.com/v6/517e16350fa29778db9d180f/pair/";
 
 getCurrencies();
@@ -17,7 +18,8 @@ getCurrencies();
 //select.options[select.selectedIndex].value; gets select values
 
 $convertButton.onclick = function () {
-  validateAmount($amountInput.value);
+  getAmount();
+  validateAmount(amount);
   getSelectValues();
   validateInitialSelect(initialValue);
   validateFinalSelect(finalValue);
@@ -31,7 +33,8 @@ $convertButton.onclick = function () {
 
   getURL();
   getData();
-  showConversion();
+  setTimeout(showConversion, 120);
+
   $resultContainer.classList.remove("hidden");
 };
 
@@ -47,8 +50,8 @@ function getData() {
 }
 
 function showConversion() {
-  $resultText.textContent = `${$amountInput.value} ${baseCurrency} are ${
-    conversionRate * $amountInput.value
+  $resultText.textContent = `${amount} ${baseCurrency} are ${
+    conversionRate * amount
   } ${targetCurrency}`;
 }
 
@@ -78,7 +81,9 @@ function getSelectValues() {
   initialValue = $initialSelector.options[$initialSelector.selectedIndex].value;
   finalValue = $finalSelector.options[$finalSelector.selectedIndex].value;
 }
-
+function getAmount() {
+  amount = $amountInput.value;
+}
 function validateAmount(amount) {
   if (amount.length === 0) {
     console.log("field must contain at least one number");
