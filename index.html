@@ -36,7 +36,7 @@
           type="text"
           name="amount"
           id="amount-input"
-          class="focus:ring-indigo-500 focus:border-indigo-500 pl-2 block w-full sm:text-sm border-gray-300 rounded-md"
+          class="focus:ring-indigo-500 focus:border-indigo-500 pl-2 block w-full sm:text-sm border-gray-300 rounded-md outline-red-500"
           placeholder="0.00"
         />
       </div>
@@ -48,7 +48,7 @@
         >
         <select
           id="initial-currency-selector"
-          class="focus:ring-indigo-500 focus:border-indigo-500 block sm:text-sm border-gray-300 rounded-md mx-1"
+          class="focus:ring-indigo-500 focus:border-indigo-500 block sm:text-sm border-gray-300 rounded-md mx-1 outline-red-500"
         >
           <option selected>Choose a currency</option>
         </select>
@@ -62,7 +62,7 @@
         >
         <select
           id="final-currency-selector"
-          class="focus:ring-indigo-500 focus:border-indigo-500 block sm:text-sm border-gray-300 rounded-md mx-1"
+          class="focus:ring-indigo-500 focus:border-indigo-500 block sm:text-sm border-gray-300 rounded-md mx-1 outline-red-500"
         >
           <option selected>Choose a currency</option>
         </select>
@@ -71,14 +71,14 @@
     <div class="button-container flex justify-center">
       <button
         id="convert-button"
-        class="convert-button btn my-4 self-center bg-violet-500 hover:bg-othercol"
+        class="convert-button btn my-4 self-center bg-violet-500 hover:bg-violet-700"
       >
         Convert
       </button>
     </div>
     <div class="result-container flex flex-col h-auto justify-center">
       <div
-        class="result-text-container flex flex-col h-auto justify-center alert alert-error shadow-lg w-fit self-center bg-blue-700 text-white"
+        class="result-text-container flex flex-col h-auto justify-center alert alert-error shadow-lg w-fit self-center bg-blue-500 text-white"
       >
         <div>
           <span class="result-text"></span>

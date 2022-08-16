@@ -20,6 +20,13 @@ $convertButton.onclick = function () {
   getSelectValues();
   validateInitialSelect(initialValue);
   validateFinalSelect(finalValue);
+  if (
+    validateAmount($amountInput.value) ||
+    validateInitialSelect(initialValue) ||
+    validateInitialSelect(finalValue) === true
+  ) {
+    return;
+  }
 
   getURL();
   getData();
@@ -73,21 +80,28 @@ function getSelectValues() {
 function validateAmount(amount) {
   if (amount.length === 0) {
     console.log("field must contain at least one number");
+    $amountInput.classList.add("outline");
     return "field must contain at least one number";
   }
   // if ("d+(.d+)?(?=$| )".test(amount)) {
   //   console.log("only numbers");
   // }
 }
-
 function validateInitialSelect(select) {
   if (select == "Choose a currency") {
-    console.log("please select a currency");
-    $initialSelector.classList.add("outline-red-500");
+    console.log("please select an initial currency");
+    $initialSelector.classList.add("outline");
+    return "Please select an initial currency";
+  } else {
+    return;
   }
 }
 function validateFinalSelect(select) {
   if (select == "Choose a currency") {
-    $finalSelector.classList.add("outline-red-500");
+    console.log("please select a final currency");
+    $finalSelector.classList.add("outline");
+    return "Please select a final currency";
+  } else {
+    return;
   }
 }
