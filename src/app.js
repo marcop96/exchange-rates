@@ -33,7 +33,7 @@ $convertButton.onclick = function () {
 
   getURL();
   getData();
-  setTimeout(showConversion, 120);
+  setTimeout(showConversion, 200);
 
   $resultContainer.classList.remove("hidden");
 };
