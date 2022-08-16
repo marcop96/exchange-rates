@@ -19,12 +19,12 @@ getCurrencies();
 
 $convertButton.onclick = function () {
   getAmount();
-  validateAmount(amount);
+  // validateAmount(amount);
   getSelectValues();
   validateInitialSelect(initialValue);
   validateFinalSelect(finalValue);
   if (
-    validateAmount($amountInput.value) ||
+    validateAmount(amount) ||
     validateInitialSelect(initialValue) ||
     validateInitialSelect(finalValue) === true
   ) {
@@ -33,7 +33,7 @@ $convertButton.onclick = function () {
 
   getURL();
   getData();
-  setTimeout(showConversion, 200);
+  // setTimeout(showConversion, 200);
 
   $resultContainer.classList.remove("hidden");
 };
@@ -46,14 +46,17 @@ function getData() {
       baseCurrency = data.base_code;
       targetCurrency = data.target_code;
       conversionRate = data.conversion_rate;
+      $resultText.textContent = `${amount} ${baseCurrency} are ${
+        conversionRate * amount
+      } ${targetCurrency}`;
     });
 }
 
-function showConversion() {
-  $resultText.textContent = `${amount} ${baseCurrency} are ${
-    conversionRate * amount
-  } ${targetCurrency}`;
-}
+// function showConversion() {
+//   $resultText.textContent = `${amount} ${baseCurrency} are ${
+//     conversionRate * amount
+//   } ${targetCurrency}`;
+// }
 
 function getCurrencies() {
   fetch(
@@ -84,22 +87,37 @@ function getSelectValues() {
 function getAmount() {
   amount = $amountInput.value;
 }
+
+const regex = new RegExp("^[1-9]d*(.d+)?$");
+let numberamount = 0;
+let numberinit = 0;
+let numberfinal = 0;
 function validateAmount(amount) {
+  console.log(`amount ${numberamount++} `);
   if (amount.length === 0) {
     console.log("field must contain at least one number");
     $amountInput.classList.add("outline");
     $amountInput.classList.add("outline-red-500");
     return "field must contain at least one number";
   }
+  if (!regex.test(amount)) {
+    console.log("insert a valid number");
+    $amountInput.classList.add("outline");
+    $amountInput.classList.add("outline-red-500");
+    return "insert a valid number";
+  }
+
   if (amount.length > 0) {
     $amountInput.classList.remove("outline");
     $amountInput.classList.remove("outline-red-500");
   }
-  // if ("d+(.d+)?(?=$| )".test(amount)) {
-  //   console.log("only numbers");
-  // }
 }
+// if ("d+(.d+)?(?=$| )".test(amount)) {
+//   console.log("only numbers");
+// }
+
 function validateInitialSelect(select) {
+  console.log(`init ${numberinit++}`);
   if (select == "Choose a currency") {
     console.log("please select an initial currency");
     $initialSelector.classList.add("outline");
@@ -114,6 +132,7 @@ function validateInitialSelect(select) {
   }
 }
 function validateFinalSelect(select) {
+  console.log(`final ${numberfinal++}`);
   if (select == "Choose a currency") {
     console.log("please select a final currency");
     $finalSelector.classList.add("outline");
