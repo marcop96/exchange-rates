@@ -30,12 +30,10 @@ $convertButton.onclick = function () {
 
   getURL();
   getData();
-  // setTimeout(showConversion, 200);
 
   $resultContainer.classList.remove("hidden");
 };
 
-// setTimeout(addOptions, 500);
 function getData() {
   fetch(URL1)
     .then((response) => response.json())
@@ -80,7 +78,7 @@ function getAmount() {
   amount = $amountInput.value;
 }
 
-const regex = new RegExp("^[1-9]d*(.d+)?$");
+const regex = new RegExp("^-?\\d*(\\.\\d+)?$");
 let numberamount = 0;
 let numberinit = 0;
 let numberfinal = 0;
@@ -104,9 +102,6 @@ function validateAmount(amount) {
     $amountInput.classList.remove("outline-red-500");
   }
 }
-// if ("d+(.d+)?(?=$| )".test(amount)) {
-//   console.log("only numbers");
-// }
 
 function validateInitialSelect(select) {
   console.log(`init ${numberinit++}`);
