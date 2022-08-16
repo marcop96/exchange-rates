@@ -10,17 +10,6 @@
       type="text/css"
     />
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          colors: {
-            navcol: "#b6465f",
-            pinky: "#ebd4cb",
-            othercol: "#DA9F93",
-          },
-        },
-      };
-    </script>
 
     <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
     <link
@@ -31,10 +20,10 @@
     />
     <link href="dist/output.css" rel="stylesheet" />
   </head>
-  <body class="h-screen bg-pinky">
+  <body class="h-screen bg-slate-300">
     <nav
       id="navbar"
-      class="bg-navcol text-center text-pinky text-lg py-2 font-semibold hover:font-bold"
+      class="bg-blue-500 text-center text-pinky text-lg py-2 font-semibold hover:font-bold"
     >
       Exchange rates
     </nav>
@@ -82,17 +71,17 @@
     <div class="button-container flex justify-center">
       <button
         id="convert-button"
-        class="convert-button btn my-4 self-center bg-navcol hover:bg-othercol"
+        class="convert-button btn my-4 self-center bg-violet-500 hover:bg-othercol"
       >
         Convert
       </button>
     </div>
     <div class="result-container flex flex-col h-auto justify-center">
       <div
-        class="result-text-container flex flex-col h-auto justify-center alert alert-error shadow-lg w-fit self-center bg-othercol"
+        class="result-text-container flex flex-col h-auto justify-center alert alert-error shadow-lg w-fit self-center bg-blue-700 text-white"
       >
         <div>
-          <span class="result-text">adspdlaspdlsa</span>
+          <span class="result-text"></span>
         </div>
       </div>
     </div>
