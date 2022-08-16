@@ -83,6 +83,9 @@ function validateAmount(amount) {
     $amountInput.classList.add("outline");
     return "field must contain at least one number";
   }
+  if (amount.length > 0) {
+    $amountInput.classList.remove("outline");
+  }
   // if ("d+(.d+)?(?=$| )".test(amount)) {
   //   console.log("only numbers");
   // }
@@ -92,6 +95,9 @@ function validateInitialSelect(select) {
     console.log("please select an initial currency");
     $initialSelector.classList.add("outline");
     return "Please select an initial currency";
+  }
+  if (select != "Choose a currency") {
+    $initialSelector.classList.remove("outline");
   } else {
     return;
   }
@@ -101,6 +107,9 @@ function validateFinalSelect(select) {
     console.log("please select a final currency");
     $finalSelector.classList.add("outline");
     return "Please select a final currency";
+  }
+  if (select != "Choose a currency") {
+    $finalSelector.classList.remove("outline");
   } else {
     return;
   }
