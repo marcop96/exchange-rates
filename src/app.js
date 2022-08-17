@@ -18,12 +18,11 @@ getCurrencies();
 $convertButton.onclick = function () {
   getAmount();
   getSelectValues();
-  validateInitialSelect(initialValue);
-  validateFinalSelect(finalValue);
+
   if (
     validateAmount(amount) ||
     validateInitialSelect(initialValue) ||
-    validateInitialSelect(finalValue) === true
+    validateFinalSelect(finalValue) === true
   ) {
     return;
   }
