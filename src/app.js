@@ -52,7 +52,7 @@ function getCurrencies() {
   )
     .then((response) => response.json())
     .then((data) => (totalCurrencies = Object.keys(data.conversion_rates)))
-    .then((OnfullFilled) => addOptions(totalCurrencies));
+    .then(() => addOptions(totalCurrencies));
 }
 function addOptions() {
   totalCurrencies.forEach(function (e) {
@@ -82,12 +82,17 @@ let numberamount = 0;
 let numberinit = 0;
 let numberfinal = 0;
 function validateAmount(amount) {
-  console.log(`amount ${numberamount++} `);
   if (amount.length === 0) {
     console.log("field must contain at least one number");
     $amountInput.classList.add("outline");
     $amountInput.classList.add("outline-red-500");
     return "field must contain at least one number";
+  }
+  if (amount < 0) {
+    console.log("field must be greater than 0");
+    $amountInput.classList.add("outline");
+    $amountInput.classList.add("outline-red-500");
+    return "field must be greater than 0";
   }
   if (!regex.test(amount)) {
     console.log("insert a valid number");
@@ -103,7 +108,6 @@ function validateAmount(amount) {
 }
 
 function validateInitialSelect(select) {
-  console.log(`init ${numberinit++}`);
   if (select == "Choose a currency") {
     console.log("please select an initial currency");
     $initialSelector.classList.add("outline");
@@ -118,7 +122,6 @@ function validateInitialSelect(select) {
   }
 }
 function validateFinalSelect(select) {
-  console.log(`final ${numberfinal++}`);
   if (select == "Choose a currency") {
     console.log("please select a final currency");
     $finalSelector.classList.add("outline");
